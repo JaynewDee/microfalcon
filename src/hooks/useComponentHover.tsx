@@ -1,6 +1,8 @@
 import { Signal, createSignal } from "solid-js";
 
-export default function useComponentHover(signal: Signal<boolean>): [any, () => void, () => void] {
+export default function useComponentHover(
+  signal: Signal<boolean>,
+): [any, () => void, () => void] {
   const [isHovered, setIsHovered] = signal;
 
   const baseStyles = {

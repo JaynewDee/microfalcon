@@ -1,11 +1,5 @@
 import { Show, createSignal } from "solid-js";
-
-function ComponentProperties(description: string, docRef: string) {
-  return {
-    description,
-    docRef
-  }
-}
+import { ComponentProperties } from "../App";
 
 export const Usb = () => {
   const baseStyles = {
@@ -15,17 +9,17 @@ export const Usb = () => {
     height: "66px",
     width: "90px",
     "border-radius": "2px",
-    outline: "3px solid white",
+    outline: "2px solid white",
     filter: "drop-shadow(0px 1px 3px black)",
-    color: "rgba(20, 20, 20, 0)"
+    color: "rgba(0, 0, 0, 0)",
   };
 
   const hoverStyles = {
-    outline: "5px solid white",
-    color: "rgba(20, 20, 20, .9)"
+    outline: "3px solid white",
+    color: "rgba(20, 20, 20, .9)",
   };
 
-  const props = ComponentProperties("USB-B Connector", "X2")
+  const props = ComponentProperties("USB-B Connector", "", "X2");
 
   const [isHovered, setIsHovered] = createSignal(false);
 
@@ -47,7 +41,7 @@ export const Usb = () => {
       onmouseout={handleMouseLeave}
     >
       <Show when={isHovered()} fallback={<div></div>}>
-        {props.description}
+        {props.name}
       </Show>
     </div>
   );

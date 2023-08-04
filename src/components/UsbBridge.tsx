@@ -1,17 +1,13 @@
-import { createSignal, Show } from "solid-js";
+import { Show, createSignal } from "solid-js";
 import { ComponentProperties } from "../App";
 
-const PROCESSOR_NAME = "ATMEGA328P"
-
-const props = ComponentProperties(PROCESSOR_NAME, "", "JZU4")
-
-export const Processor = () => {
+export const UsbBridge = () => {
   const baseStyles = {
     Position: "absolute",
-    left: "48%",
-    top: "56%",
-    height: "50px",
-    width: "215px",
+    left: "37%",
+    top: "40%",
+    height: "21px",
+    width: "25px",
     "border-radius": "2px",
     outline: "2px solid white",
     filter: "drop-shadow(0px 1px 3px black)",
@@ -23,6 +19,8 @@ export const Processor = () => {
     color: "rgba(20, 20, 20, .9)",
   };
 
+  const props = ComponentProperties("ATMEGA16U2", "Used to create a bridge between the port of the main processor and USB port", "U3");
+
   const [isHovered, setIsHovered] = createSignal(false);
 
   const handleMouseEnter = () => {
@@ -33,8 +31,9 @@ export const Processor = () => {
     setIsHovered(false);
   };
 
-
-  return <div class="main-processor-container"
+  return (
+    <div
+      class="usb-bridge-container"
       style={
         isHovered() ? { ...baseStyles, ...hoverStyles } : { ...baseStyles }
       }
@@ -42,8 +41,8 @@ export const Processor = () => {
       onmouseout={handleMouseLeave}
     >
       <Show when={isHovered()} fallback={<div></div>}>
-        {props.description}
+        {props.name}
       </Show>
     </div>
-
+  );
 };

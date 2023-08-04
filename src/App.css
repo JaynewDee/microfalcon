@@ -45,6 +45,14 @@ a {
   margin: 3px;
   border-radius: 50%;
 }
+
 .palette-sample:hover {
   outline: 1px solid black;
+}
+
+.main-processor-container {
+ }
+
+.usb-bridge-container {
+
 }
